@@ -15,6 +15,7 @@ cc.Class({
         _handleMoveRight: null,
         _handleDoneRandom: null,
         _action: null,
+        animMove: null,
     },
 
     onLoad () {
@@ -29,7 +30,17 @@ cc.Class({
         Emitter.instance.registerEvent("moveLeft",this._handleMoveLeft);
         Emitter.instance.registerEvent("moveRight",this._handleMoveRight);
        // Emitter.instance.registerEvent("doneRandom",this._handleDoneRandom);
+       
+       this.animMove = this.handleMoveAnim;
     },
+
+    handleMoveAnim(x,y,callBack){
+        let actionMove = cc.moveTo(1,cc.v2(x,y));
+        let actionCB = cc.callFunc(callBack);
+        let action = cc.sequence(actionMove,actionCB);
+        return action;
+    },
+
     setColorNumber(number){
         if(number == 0 ) {
             this.lblCard.node.active = false;
