@@ -21,7 +21,9 @@ cc.Class({
         _handleMoveRight: null,
         _handleDoneRandom: null,
         _action: null,
-        animMove: null
+        animMove: null,
+        _xOld: null,
+        _yOld: null
     },
 
     onLoad: function onLoad() {
@@ -36,8 +38,22 @@ cc.Class({
         Emitter.instance.registerEvent("moveLeft", this._handleMoveLeft);
         Emitter.instance.registerEvent("moveRight", this._handleMoveRight);
         // Emitter.instance.registerEvent("doneRandom",this._handleDoneRandom);
-
-        this.animMove = this.handleMoveAnim;
+        //Emitter.instance.registerEvent("move", this.handleMove.bind(this));
+        if (this._xOld == null && this._yOld == null) {
+            this._xOld = this.node.x;
+            this._yOld = this.node.y;
+        }
+        Emitter.instance.registerEvent("moveRight", this.handleMove);
+    },
+    handleMove: function handleMove(selfCard, ortherCard, callBack) {
+        //1: move tới position của ortherCard
+        //2: 
+        if (this.node == selfCard) {
+            var x = ortherCard.x;
+            var y = ortherCard.y;
+            var handleTween = cc.tween;
+            handleTween(selfCard).parallel(handleTween().to(2, { x: x, y: y }), handleTween().call(callBack)).to(0, 5, { x: selfCard.getComponent("card")._xOld, y: selfCard.getComponent("card")._yOld }).start();
+        }
     },
     handleMoveAnim: function handleMoveAnim(x, y, callBack) {
         var actionMove = cc.moveTo(1, cc.v2(x, y));

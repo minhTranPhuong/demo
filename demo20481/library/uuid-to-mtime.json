@@ -425,8 +425,8 @@
     "relativePath": "prefab"
   },
   "a436b44c-9b51-423a-b6bd-1ab0241f23f8": {
-    "asset": 1652934150297,
-    "meta": 1652934150304,
+    "asset": 1652957359706,
+    "meta": 1652957359716,
     "relativePath": "prefab/card.prefab"
   },
   "ef73c486-915a-44b6-88a8-bcdea9a64895": {
@@ -450,13 +450,13 @@
     "relativePath": "script/mEmitter.js"
   },
   "2ff2ea60-f286-4bc3-9855-7fd6f6e32918": {
-    "asset": 1652932353957,
-    "meta": 1652932370127,
+    "asset": 1652956992031,
+    "meta": 1652957007085,
     "relativePath": "script/card.js"
   },
   "7f2521e9-42c0-4789-bd37-34efcf9116db": {
-    "asset": 1652934928641,
-    "meta": 1652934932711,
+    "asset": 1652957525304,
+    "meta": 1652957540458,
     "relativePath": "script/main.js"
   }
 }

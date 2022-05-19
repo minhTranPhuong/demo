@@ -106,48 +106,65 @@ cc.Class({
         // nếu j = 0  => continue
         // j =i => => nhân đôi j lên => active lại 2 thằng gán lại giá trị cho i =0,
         // j khác i => lấy thằng trước nó và thay đổi giá trị 
+
+
+        // chỉ có 3 trường hợp:
         cc.log(arrCard);
         for (let i = 1; i < arrCard.length; i++) {
             if (arrCard[i].active == false) {
                 continue;
             }
             let checkCompare = false;
+            let objEmit = { selfCard: null, otherCard: null, callback: null };
             for (let j = i - 1; j >= 0; j--) {
                 if (checkCompare == true) {
                     j = -1;
-                    break;
-                }               
+                    continue;
+                }
                 if (j == 0) {
                     if (arrCard[j].active == false) {
-                        arrCard[j].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                        arrCard[i].active = false;
-                        arrCard[j].active = true;
-                        checkCompare = true;
-                        break;
+                        let callBack = function () {
+                            arrCard[j].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
+                            arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                            arrCard[i].active = false;
+                            arrCard[j].active = true;
+                            checkCompare = true;
+                        }
+                        objEmit.otherCard = arrCard[j];
+                        objEmit.callback = callBack
+                        continue;
                     }
                     //else if value j == value i => value j * 2 , value i = 0 , active j = true , active i = fasle
                     else if (arrCard[j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
-                        arrCard[j].children[0].getComponent('cc.Label').string = Number(arrCard[j].children[0].getComponent('cc.Label').string) * 2 + "";
-                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                        arrCard[j].active = true;
-                        arrCard[i].active = false;
-                        checkCompare = true;
-                        break;
+                        let callBack = function () {
+                            arrCard[j].children[0].getComponent('cc.Label').string = Number(arrCard[j].children[0].getComponent('cc.Label').string) * 2 + "";
+                            arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                            arrCard[j].active = true;
+                            arrCard[i].active = false;
+                            checkCompare = true;
+                        }
+                        objEmit.otherCard = arrCard[j];
+                        objEmit.callback = callBack
+
+                        continue;
                     }
                     //else if value j != value i => value j+1 = value i , value i = 0 , active j-1 = true , active i = false; 
                     else if (arrCard[j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
                         let reValue = j + 1;
                         checkCompare = true;
                         if (reValue == i) {
-                            break;
+                            continue;
                         }
                         else {
-                            arrCard[reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                            arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                            arrCard[reValue].active = true;
-                            arrCard[i].active = false;
-                            break;
+                            let callBack = function () {
+                                arrCard[reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
+                                arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                                arrCard[reValue].active = true;
+                                arrCard[i].active = false;
+                            }
+                            objEmit.otherCard = arrCard[reValue];
+                            objEmit.callback = callBack;
+                            continue;
                         }
                     }
                 }
@@ -157,41 +174,46 @@ cc.Class({
                     continue;
                 }
                 // value j == value i => value j*2 && active j = true , active i = false , gán i = 0
-                this.blabla(arrCard[j], arrCard[i], checkCompare);
-                break;
+                if (arrCard[j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
+                    let callBack = function () {
+                        arrCard[j].children[0].getComponent('cc.Label').string = Number(arrCard[j].children[0].getComponent('cc.Label').string) * 2 + "";
+                        cc.log(arrCard[j].children[0].getComponent('cc.Label').string)
+                        arrCard[j].active = true;
+                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                        arrCard[i].active = false;
+                        checkCompare = true;
+                        cc.log(arrCard[i], arrCard[j])
+                    }
+                    objEmit.otherCard = arrCard[j];
+                    objEmit.callback = callBack;
+
+                    // if(j == 1){
+                    //     j = -1;
+                    // }
+                    continue;
+                }
                 // value j != value i => value j +1 = value i , value i =0 , active j +1 = true , active i = false
                 if (arrCard[j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
                     checkCompare = true;
                     let reValue = j + 1;
                     // nếu value trước là chính nó thì continue
                     if (reValue == i) {
-                        break;
+                        continue;
                     }
-                    arrCard[reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                    arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                    arrCard[reValue].active = true;
-                    arrCard[i].active = false;
-                    break;
+                    let callBack = function () {
+                        arrCard[reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
+                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                        arrCard[reValue].active = true;
+                        arrCard[i].active = false;
+                    }
+                    objEmit.otherCard = arrCard[reValue];
+                    objEmit.callback = callBack;
+                    continue;
                 }
             }
+            Emitter.instance.emit("handleMove", arrCard[i], objEmit.otherCard , objEmit.callback)
         }
         // cc.log(arrCard)
-    },
-
-    blabla(b1, b2, checkCompare) {
-        if (b1.children[0].getComponent('cc.Label').string == b2.children[0].getComponent('cc.Label').string) {
-            b1.children[0].getComponent('cc.Label').string = Number(b1.children[0].getComponent('cc.Label').string) * 2 + "";
-            cc.log(b1.children[0].getComponent('cc.Label').string)
-            b1.active = true;
-            b2.children[0].getComponent('cc.Label').string = "0";
-            b2.active = false;
-            checkCompare = true;
-            cc.log(b2, b1)
-            // if(j == 1){
-            //     j = -1;
-            // }
-            
-        }
     },
 
     getString(row, col) {
@@ -226,7 +248,6 @@ cc.Class({
     },
 
     randomNumber() {
-        
         let flatArray = this._arrBlocks.flat(Infinity)
         let arrNone = flatArray.filter((value) => {
             return value.active == false;
@@ -236,13 +257,5 @@ cc.Class({
         arrNone[index].active = true;
         cc.log(this._arrBlocks);
     },
-
-    createItem(x, y) {
-        let card = cc.instantiate(this.card);
-        card.parent = this.node
-        card.x = x;
-        card.y = y;
-    },
-
     // update (dt) {},
 });

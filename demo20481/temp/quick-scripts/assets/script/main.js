@@ -110,88 +110,124 @@ cc.Class({
         // j =i => => nhân đôi j lên => active lại 2 thằng gán lại giá trị cho i =0,
         // j khác i => lấy thằng trước nó và thay đổi giá trị 
         cc.log(arrCard);
-        for (var i = 1; i < arrCard.length; i++) {
+
+        var _loop = function _loop(i) {
             if (arrCard[i].active == false) {
-                continue;
+                return 'continue';
             }
             var checkCompare = false;
-            for (var j = i - 1; j >= 0; j--) {
+            var objEmit = { selfCard: null, otherCard: null, callback: null };
+
+            var _loop2 = function _loop2(_j) {
                 if (checkCompare == true) {
-                    j = -1;
-                    break;
+                    _j = -1;
+                    return 'continue';
                 }
-                if (j == 0) {
-                    if (arrCard[j].active == false) {
-                        arrCard[j].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                        arrCard[i].active = false;
-                        arrCard[j].active = true;
-                        checkCompare = true;
-                        break;
+                if (_j == 0) {
+                    if (arrCard[_j].active == false) {
+                        var callBack = function callBack() {
+                            arrCard[_j].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
+                            arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                            arrCard[i].active = false;
+                            arrCard[_j].active = true;
+                            checkCompare = true;
+                        };
+                        objEmit.otherCard = arrCard[_j];
+                        objEmit.callback = callBack;
+                        return 'continue';
                     }
                     //else if value j == value i => value j * 2 , value i = 0 , active j = true , active i = fasle
-                    else if (arrCard[j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
-                            arrCard[j].children[0].getComponent('cc.Label').string = Number(arrCard[j].children[0].getComponent('cc.Label').string) * 2 + "";
-                            arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                            arrCard[j].active = true;
-                            arrCard[i].active = false;
-                            checkCompare = true;
-                            break;
+                    else if (arrCard[_j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
+                            var _callBack = function _callBack() {
+                                arrCard[_j].children[0].getComponent('cc.Label').string = Number(arrCard[_j].children[0].getComponent('cc.Label').string) * 2 + "";
+                                arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                                arrCard[_j].active = true;
+                                arrCard[i].active = false;
+                                checkCompare = true;
+                            };
+                            objEmit.otherCard = arrCard[_j];
+                            objEmit.callback = _callBack;
+
+                            return 'continue';
                         }
                         //else if value j != value i => value j+1 = value i , value i = 0 , active j-1 = true , active i = false; 
-                        else if (arrCard[j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
-                                var reValue = j + 1;
+                        else if (arrCard[_j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
+                                var reValue = _j + 1;
                                 checkCompare = true;
                                 if (reValue == i) {
-                                    break;
+                                    return 'continue';
                                 } else {
-                                    arrCard[reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                                    arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                                    arrCard[reValue].active = true;
-                                    arrCard[i].active = false;
-                                    break;
+                                    var _callBack2 = function _callBack2() {
+                                        arrCard[reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
+                                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                                        arrCard[reValue].active = true;
+                                        arrCard[i].active = false;
+                                    };
+                                    objEmit.otherCard = arrCard[reValue];
+                                    objEmit.callback = _callBack2;
+                                    return 'continue';
                                 }
                             }
                 }
                 //value j active = false => continue
-                if (arrCard[j].active == false) {
+                if (arrCard[_j].active == false) {
                     cc.log("continue");
-                    continue;
+                    return 'continue';
                 }
                 // value j == value i => value j*2 && active j = true , active i = false , gán i = 0
-                this.blabla(arrCard[j], arrCard[i], checkCompare);
-                break;
+                if (arrCard[_j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
+                    var _callBack3 = function _callBack3() {
+                        arrCard[_j].children[0].getComponent('cc.Label').string = Number(arrCard[_j].children[0].getComponent('cc.Label').string) * 2 + "";
+                        cc.log(arrCard[_j].children[0].getComponent('cc.Label').string);
+                        arrCard[_j].active = true;
+                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                        arrCard[i].active = false;
+                        checkCompare = true;
+                        cc.log(arrCard[i], arrCard[_j]);
+                    };
+                    objEmit.otherCard = arrCard[_j];
+                    objEmit.callback = _callBack3;
+
+                    // if(j == 1){
+                    //     j = -1;
+                    // }
+                    return 'continue';
+                }
                 // value j != value i => value j +1 = value i , value i =0 , active j +1 = true , active i = false
-                if (arrCard[j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
+                if (arrCard[_j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
                     checkCompare = true;
-                    var _reValue = j + 1;
+                    var _reValue = _j + 1;
                     // nếu value trước là chính nó thì continue
                     if (_reValue == i) {
-                        break;
+                        return 'continue';
                     }
-                    arrCard[_reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                    arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                    arrCard[_reValue].active = true;
-                    arrCard[i].active = false;
-                    break;
+                    var _callBack4 = function _callBack4() {
+                        arrCard[_reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
+                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
+                        arrCard[_reValue].active = true;
+                        arrCard[i].active = false;
+                    };
+                    objEmit.otherCard = arrCard[_reValue];
+                    objEmit.callback = _callBack4;
+                    return 'continue';
                 }
+                j = _j;
+            };
+
+            for (var j = i - 1; j >= 0; j--) {
+                var _ret2 = _loop2(j);
+
+                if (_ret2 === 'continue') continue;
             }
+            Emitter.instance.emit("handleMove", arrCard[i], objEmit.otherCard, objEmit.callback);
+        };
+
+        for (var i = 1; i < arrCard.length; i++) {
+            var _ret = _loop(i);
+
+            if (_ret === 'continue') continue;
         }
         // cc.log(arrCard)
-    },
-    blabla: function blabla(b1, b2, checkCompare) {
-        if (b1.children[0].getComponent('cc.Label').string == b2.children[0].getComponent('cc.Label').string) {
-            b1.children[0].getComponent('cc.Label').string = Number(b1.children[0].getComponent('cc.Label').string) * 2 + "";
-            cc.log(b1.children[0].getComponent('cc.Label').string);
-            b1.active = true;
-            b2.children[0].getComponent('cc.Label').string = "0";
-            b2.active = false;
-            checkCompare = true;
-            cc.log(b2, b1);
-            // if(j == 1){
-            //     j = -1;
-            // }
-        }
     },
     getString: function getString(row, col) {
         return this._arrBlocks[row][col].children[0].getComponent('cc.Label').string;
@@ -229,15 +265,8 @@ cc.Class({
         arrNone[index].children[0].getComponent('cc.Label').string = 2;
         arrNone[index].active = true;
         cc.log(this._arrBlocks);
-    },
-    createItem: function createItem(x, y) {
-        var card = cc.instantiate(this.card);
-        card.parent = this.node;
-        card.x = x;
-        card.y = y;
     }
 }
-
 // update (dt) {},
 );
 

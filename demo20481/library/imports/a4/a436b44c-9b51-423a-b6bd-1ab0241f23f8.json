@@ -263,6 +263,8 @@
     "_handleDoneRandom": null,
     "_action": null,
     "animMove": null,
+    "_xOld": null,
+    "_yOld": null,
     "_id": ""
   },
   {
