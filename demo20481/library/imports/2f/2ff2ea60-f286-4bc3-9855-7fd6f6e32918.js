@@ -39,15 +39,9 @@ cc.Class({
         Emitter.instance.registerEvent("moveRight", this._handleMoveRight);
         // Emitter.instance.registerEvent("doneRandom",this._handleDoneRandom);
         //Emitter.instance.registerEvent("move", this.handleMove.bind(this));
-        if (this._xOld == null && this._yOld == null) {
-            this._xOld = this.node.x;
-            this._yOld = this.node.y;
-        }
         Emitter.instance.registerEvent("moveRight", this.handleMove);
     },
     handleMove: function handleMove(selfCard, ortherCard, callBack) {
-        //1: move tới position của ortherCard
-        //2: 
         if (this.node == selfCard) {
             var x = ortherCard.x;
             var y = ortherCard.y;
@@ -132,10 +126,17 @@ cc.Class({
         this.move(150, 0);
     },
     animMerge: function animMerge() {},
-    start: function start() {}
-}
-
-// update (dt) {},
-);
+    start: function start() {
+        if (this._xOld == null && this._yOld == null) {
+            this._xOld = this.node.x;
+            this._yOld = this.node.y;
+        }
+    },
+    update: function update(dt) {
+        if (this.lblCard.string == "0") {
+            this.node.active = false;
+        }
+    }
+});
 
 cc._RF.pop();

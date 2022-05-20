@@ -1,68 +1,174 @@
-2022-05-19T10:58:31.723Z - normal: Load ~/.CocosCreator/settings.json
-2022-05-19T10:58:31.760Z - normal: Initializing Asset Database
-2022-05-19T10:58:31.761Z - normal: checking language setting...
-2022-05-19T10:58:31.761Z - normal: Language: en
-2022-05-19T10:58:32.149Z - success: preview server running at http://localhost:7456
-2022-05-19T10:58:32.173Z - success: protocol editor-framework registered
-2022-05-19T10:58:32.173Z - success: protocol app registered
-2022-05-19T10:58:32.173Z - success: protocol theme registered
-2022-05-19T10:58:32.173Z - success: protocol packages registered
-2022-05-19T10:58:32.173Z - success: protocol uuid registerred
-2022-05-19T10:58:32.173Z - success: protocol db registerred
-2022-05-19T10:58:32.173Z - success: protocol thumbnail registerred
-2022-05-19T10:58:32.173Z - success: protocol unpack registerred
-2022-05-19T10:58:32.173Z - success: protocol disable-commonjs registerred
-2022-05-19T10:58:35.154Z - normal: failed to connect login server due to request timeout
-2022-05-19T10:58:35.154Z - normal: Check project /Users/fresher-phuongminh/Desktop/final/demo/demo20481
-2022-05-19T10:58:35.156Z - normal: Initializing project /Users/fresher-phuongminh/Desktop/final/demo/demo20481
-2022-05-19T10:58:35.376Z - normal: Initializing Cocos2d
-2022-05-19T10:58:35.746Z - normal: Initializing engine extends
-2022-05-19T10:58:35.769Z - success: alipay-adapter loaded
-2022-05-19T10:58:35.779Z - success: asset-db-debugger loaded
-2022-05-19T10:58:35.782Z - success: baidu-adapter loaded
-2022-05-19T10:58:35.785Z - success: color-picker loaded
-2022-05-19T10:58:35.873Z - success: fb-audience-network loaded
-2022-05-19T10:58:35.902Z - success: fb-live-stream loaded
-2022-05-19T10:58:35.904Z - success: google-play-instant loaded
-2022-05-19T10:58:35.906Z - success: huawei-runtime loaded
-2022-05-19T10:58:36.029Z - success: cpk-publish loaded
-2022-05-19T10:58:36.030Z - success: jsb-adapter loaded
-2022-05-19T10:58:36.033Z - success: oppo-runtime loaded
-2022-05-19T10:58:36.042Z - success: package-manager loaded
-2022-05-19T10:58:36.103Z - success: qqplay-adapter loaded
-2022-05-19T10:58:36.104Z - success: runtime-dev-tools loaded
-2022-05-19T10:58:36.112Z - success: sdkbox loaded
-2022-05-19T10:58:36.120Z - success: tester loaded
-2022-05-19T10:58:36.126Z - success: ui-kit-preview-extra loaded
-2022-05-19T10:58:36.132Z - success: ui-kit-preview loaded
-2022-05-19T10:58:36.139Z - success: ui-kit loaded
-2022-05-19T10:58:36.142Z - success: vivo-runtime loaded
-2022-05-19T10:58:36.142Z - success: weapp-adapter loaded
-2022-05-19T10:58:36.143Z - success: xiaomi-adapter loaded
-2022-05-19T10:58:36.144Z - success: alipay-minigame loaded
-2022-05-19T10:58:36.178Z - success: assets loaded
-2022-05-19T10:58:36.185Z - success: builder loaded
-2022-05-19T10:58:36.341Z - success: cocos-services loaded
-2022-05-19T10:58:36.352Z - success: console loaded
-2022-05-19T10:58:36.373Z - success: fb-instant-games loaded
-2022-05-19T10:58:36.381Z - success: game-window loaded
-2022-05-19T10:58:36.381Z - success: google-instant-games loaded
-2022-05-19T10:58:36.390Z - success: hierarchy loaded
-2022-05-19T10:58:36.398Z - success: inspector loaded
-2022-05-19T10:58:36.399Z - success: keystore loaded
-2022-05-19T10:58:36.406Z - success: node-library loaded
-2022-05-19T10:58:36.407Z - success: package-asset loaded
-2022-05-19T10:58:36.408Z - success: preferences loaded
-2022-05-19T10:58:36.414Z - success: project-exporter loaded
-2022-05-19T10:58:36.422Z - success: project-importer loaded
-2022-05-19T10:58:36.428Z - success: project-settings loaded
-2022-05-19T10:58:36.436Z - success: scene loaded
-2022-05-19T10:58:36.437Z - success: simulator-debugger loaded
-2022-05-19T10:58:36.437Z - success: sprite-editor loaded
-2022-05-19T10:58:36.444Z - success: store loaded
-2022-05-19T10:58:36.453Z - success: timeline loaded
-2022-05-19T10:58:36.455Z - success: xiaomi-runtime loaded
-2022-05-19T10:58:37.155Z - normal: Loading packages
-2022-05-19T10:58:37.159Z - normal: Watching packages
-2022-05-19T10:58:37.233Z - normal: Run Application
-2022-05-19T11:01:04.011Z - info: Cocos Services load base data!
+2022-05-20T05:47:48.349Z - normal: Load ~/.CocosCreator/settings.json
+2022-05-20T05:47:48.387Z - normal: Initializing Asset Database
+2022-05-20T05:47:48.389Z - normal: checking language setting...
+2022-05-20T05:47:48.389Z - normal: Language: en
+2022-05-20T05:47:48.772Z - success: preview server running at http://localhost:7456
+2022-05-20T05:47:48.793Z - success: protocol editor-framework registered
+2022-05-20T05:47:48.793Z - success: protocol app registered
+2022-05-20T05:47:48.793Z - success: protocol theme registered
+2022-05-20T05:47:48.793Z - success: protocol packages registered
+2022-05-20T05:47:48.794Z - success: protocol uuid registerred
+2022-05-20T05:47:48.794Z - success: protocol db registerred
+2022-05-20T05:47:48.794Z - success: protocol thumbnail registerred
+2022-05-20T05:47:48.794Z - success: protocol unpack registerred
+2022-05-20T05:47:48.794Z - success: protocol disable-commonjs registerred
+2022-05-20T05:47:50.062Z - normal: connected!
+2022-05-20T05:47:50.064Z - normal: Check project /Users/fresher-phuongminh/Desktop/final/demo/demo20481
+2022-05-20T05:47:50.065Z - normal: Initializing project /Users/fresher-phuongminh/Desktop/final/demo/demo20481
+2022-05-20T05:47:50.283Z - normal: Initializing Cocos2d
+2022-05-20T05:47:50.653Z - normal: Initializing engine extends
+2022-05-20T05:47:50.668Z - success: alipay-adapter loaded
+2022-05-20T05:47:50.680Z - success: asset-db-debugger loaded
+2022-05-20T05:47:50.683Z - success: baidu-adapter loaded
+2022-05-20T05:47:50.685Z - success: color-picker loaded
+2022-05-20T05:47:50.771Z - success: fb-audience-network loaded
+2022-05-20T05:47:50.804Z - success: fb-live-stream loaded
+2022-05-20T05:47:50.805Z - success: google-play-instant loaded
+2022-05-20T05:47:50.808Z - success: huawei-runtime loaded
+2022-05-20T05:47:50.927Z - success: cpk-publish loaded
+2022-05-20T05:47:50.927Z - success: jsb-adapter loaded
+2022-05-20T05:47:50.930Z - success: oppo-runtime loaded
+2022-05-20T05:47:50.938Z - success: package-manager loaded
+2022-05-20T05:47:51.004Z - success: qqplay-adapter loaded
+2022-05-20T05:47:51.005Z - success: runtime-dev-tools loaded
+2022-05-20T05:47:51.013Z - success: sdkbox loaded
+2022-05-20T05:47:51.021Z - success: tester loaded
+2022-05-20T05:47:51.027Z - success: ui-kit-preview-extra loaded
+2022-05-20T05:47:51.033Z - success: ui-kit-preview loaded
+2022-05-20T05:47:51.041Z - success: ui-kit loaded
+2022-05-20T05:47:51.044Z - success: vivo-runtime loaded
+2022-05-20T05:47:51.045Z - success: weapp-adapter loaded
+2022-05-20T05:47:51.045Z - success: xiaomi-adapter loaded
+2022-05-20T05:47:51.046Z - success: alipay-minigame loaded
+2022-05-20T05:47:51.081Z - success: assets loaded
+2022-05-20T05:47:51.088Z - success: builder loaded
+2022-05-20T05:47:51.244Z - success: cocos-services loaded
+2022-05-20T05:47:51.253Z - success: console loaded
+2022-05-20T05:47:51.276Z - success: fb-instant-games loaded
+2022-05-20T05:47:51.289Z - success: game-window loaded
+2022-05-20T05:47:51.290Z - success: google-instant-games loaded
+2022-05-20T05:47:51.298Z - success: hierarchy loaded
+2022-05-20T05:47:51.306Z - success: inspector loaded
+2022-05-20T05:47:51.307Z - success: keystore loaded
+2022-05-20T05:47:51.315Z - success: node-library loaded
+2022-05-20T05:47:51.316Z - success: package-asset loaded
+2022-05-20T05:47:51.317Z - success: preferences loaded
+2022-05-20T05:47:51.324Z - success: project-exporter loaded
+2022-05-20T05:47:51.332Z - success: project-importer loaded
+2022-05-20T05:47:51.340Z - success: project-settings loaded
+2022-05-20T05:47:51.348Z - success: scene loaded
+2022-05-20T05:47:51.348Z - success: simulator-debugger loaded
+2022-05-20T05:47:51.349Z - success: sprite-editor loaded
+2022-05-20T05:47:51.357Z - success: store loaded
+2022-05-20T05:47:51.366Z - success: timeline loaded
+2022-05-20T05:47:51.368Z - success: xiaomi-runtime loaded
+2022-05-20T05:47:54.986Z - info: Cocos Services load base data!
+2022-05-20T05:47:54.991Z - normal: Loading packages
+2022-05-20T05:47:54.995Z - normal: Watching packages
+2022-05-20T05:47:55.068Z - normal: Run Application
+2022-05-20T08:31:10.314Z - failed: [db-task][sync-changes] Failed to import asset /Users/fresher-phuongminh/Desktop/final/demo/demo20481/assets/script/main.js, message: Compile error: SyntaxError: /Users/fresher-phuongminh/Desktop/final/demo/demo20481/assets/script/main.js: Unexpected token, expected ; (117:27)
+  115 |             }
+  116 |         }
+> 117 |         let t1 ,t2 ,t3, t4 => s1
+      |                            ^
+  118 |         t = cc.tween(s1).then(t1).then(t2).then(t3).then(t4).start()
+  119 |     },
+  120 | 
+    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
+    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
+    at Parser.pp.semicolon (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1742:38)
+    at Parser.pp$1.parseVarStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2170:8)
+    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1861:19)
+    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
+    at Parser.pp$1.parseBlock (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2247:8)
+    at Parser.pp$3.parseFunctionBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4235:22)
+    at Parser.pp$3.parseMethod (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4180:8)
+    at Parser.pp$3.parseObjectMethod (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4097:10)
+2022-05-20T09:32:19.598Z - failed: load script [/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js] failed : ReferenceError: regeneratorRuntime is not defined
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:104:52
+    at __define (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:176:6)
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:285:13
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:292:11)
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:295:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2022-05-20T09:32:41.793Z - warn: Script attached to "background" is missing or invalid. Detailed information:
+Node path: "Canvas/background"
+Script UUID: "7f2521e9-42c0-4789-bd37-34efcf9116db"
+Class ID: "7f252HpQsBHib03NO/PkRbb"
+
+2022-05-20T09:32:41.950Z - failed: load script [/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js] failed : ReferenceError: regeneratorRuntime is not defined
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:104:52
+    at __define (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:173:6)
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:282:13
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:289:11)
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:292:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2022-05-20T09:34:54.254Z - failed: load script [/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js] failed : ReferenceError: regeneratorRuntime is not defined
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:165:52
+    at __define (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:209:6)
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:254:13
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:261:11)
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:264:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2022-05-20T09:36:30.267Z - warn: Script attached to "background" is missing or invalid. Detailed information:
+Node path: "Canvas/background"
+Script UUID: "7f2521e9-42c0-4789-bd37-34efcf9116db"
+Class ID: "7f252HpQsBHib03NO/PkRbb"
+
+2022-05-20T09:36:30.506Z - failed: load script [/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js] failed : ReferenceError: regeneratorRuntime is not defined
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:166:52
+    at __define (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:210:6)
+    at /Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:255:13
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:262:11)
+    at Object.<anonymous> (/Users/fresher-phuongminh/Desktop/final/demo/demo20481/temp/quick-scripts/assets/script/main.js:265:3)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+2022-05-20T09:37:57.416Z - failed: [db-task][sync-changes] Failed to import asset /Users/fresher-phuongminh/Desktop/final/demo/demo20481/assets/script/main.js, message: Compile error: SyntaxError: /Users/fresher-phuongminh/Desktop/final/demo/demo20481/assets/script/main.js: await is a reserved word (4:6)
+  2 | const Emitter = require('mEmitter');
+  3 | const async = require("async");
+> 4 | const await = require("await");
+    |       ^
+  5 | cc.Class({
+  6 |     extends: cc.Component,
+  7 | 
+    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
+    at Parser.pp$3.checkReservedWord (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4347:10)
+    at Parser.pp$2.checkLVal (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:3151:12)
+    at Parser.pp$1.parseVarHead (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2356:8)
+    at Parser.pp$1.parseVar (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2338:10)
+    at Parser.pp$1.parseVarStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2169:8)
+    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1861:19)
+    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
+    at Parser.pp$1.parseTopLevel (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1778:8)
+    at Parser.parse (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1673:17)
+2022-05-20T10:46:37.187Z - failed: [db-task][sync-changes] Failed to import asset /Users/fresher-phuongminh/Desktop/final/demo/demo20481/assets/script/main.js, message: Compile error: SyntaxError: /Users/fresher-phuongminh/Desktop/final/demo/demo20481/assets/script/main.js: Unexpected token, expected ; (1:5)
+> 1 | Minh Minh, [20/05/2022 15:55]
+    |      ^
+  2 | const COLOR = require('color');
+  3 | const Emitter = require('mEmitter');
+  4 | let arrBlock = [];
+    at Parser.pp$5.raise (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:4454:13)
+    at Parser.pp.unexpected (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1761:8)
+    at Parser.pp.semicolon (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1742:38)
+    at Parser.pp$1.parseExpressionStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2236:8)
+    at Parser.pp$1.parseStatement (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1911:17)
+    at Parser.pp$1.parseBlockBody (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:2268:21)
+    at Parser.pp$1.parseTopLevel (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1778:8)
+    at Parser.parse (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:1673:17)
+    at parse (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babylon/lib/index.js:7305:37)
+    at File.parse (/Applications/CocosCreator.app/Contents/Resources/app.asar/node_modules/babel-core/lib/transformation/file/index.js:527:15)

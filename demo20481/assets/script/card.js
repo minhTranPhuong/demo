@@ -33,16 +33,10 @@ cc.Class({
         Emitter.instance.registerEvent("moveRight", this._handleMoveRight);
         // Emitter.instance.registerEvent("doneRandom",this._handleDoneRandom);
         //Emitter.instance.registerEvent("move", this.handleMove.bind(this));
-        if (this._xOld == null && this._yOld == null) {
-            this._xOld = this.node.x;
-            this._yOld = this.node.y;
-        }
         Emitter.instance.registerEvent("moveRight", this.handleMove);
     },
 
     handleMove(selfCard, ortherCard, callBack) {
-        //1: move tới position của ortherCard
-        //2: 
         if (this.node == selfCard) {
             let x = ortherCard.x;
             let y = ortherCard.y;
@@ -52,7 +46,7 @@ cc.Class({
                     handleTween().to(2, { x: x, y: y }),
                     handleTween().call(callBack)
                 )
-                .to(0,5,{x: selfCard.getComponent("card")._xOld , y : selfCard.getComponent("card")._yOld})
+                .to(0, 5, { x: selfCard.getComponent("card")._xOld, y: selfCard.getComponent("card")._yOld })
                 .start();
         }
     },
@@ -147,7 +141,15 @@ cc.Class({
     },
 
     start() {
+        if (this._xOld == null && this._yOld == null) {
+            this._xOld = this.node.x;
+            this._yOld = this.node.y;
+        }
     },
-
-    // update (dt) {},
+    
+    update (dt) {
+        if(this.lblCard.string == "0"){
+            this.node.active = false
+        }
+    },
 });

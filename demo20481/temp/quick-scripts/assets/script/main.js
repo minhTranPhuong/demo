@@ -34,7 +34,6 @@ cc.Class({
             case cc.macro.KEY.down:
             case cc.macro.KEY.left:
             case cc.macro.KEY.right:
-                this.randomNumber();
                 this._canPress = false;
                 break;
             default:
@@ -69,6 +68,7 @@ cc.Class({
             }
             this.handle(flatArrCard);
         }
+        this.randomNumber();
     },
     moveDown: function moveDown() {
         for (var col = 0; col < 4; col++) {
@@ -76,9 +76,9 @@ cc.Class({
             for (var row = 0; row < 4; row++) {
                 flatArrCard[row] = this._arrBlocks[row][col];
             }
-
             this.handle(flatArrCard.reverse());
         }
+        this.randomNumber();
     },
     moveLeft: function moveLeft() {
         for (var row = 0; row < 4; row++) {
@@ -86,9 +86,9 @@ cc.Class({
             for (var col = 0; col < 4; col++) {
                 flatArrCard[col] = this._arrBlocks[row][col];
             }
-
             this.handle(flatArrCard);
         }
+        this.randomNumber();
     },
     moveRight: function moveRight() {
         for (var row = 0; row < 4; row++) {
@@ -99,138 +99,85 @@ cc.Class({
 
             this.handle(flatArrCard.reverse());
         }
+        this.randomNumber();
     },
     handle: function handle(arrCard) {
-        //[0,2,2,0],[2,0,2,0],[4,0,0,0]
-        // ở vị trí 0 nó bằng 0=> thì thay đổi giá trị(2 thằng) , active(2 thằng).
-        // ở vị trí 0 nó khác 0 và nó bằng thằng card đó => valueCard * 2 , active(2 thằng), chuyền thằng i =0
-        // ở vị trí 0 nó khác 0 và nó khác thằng card đó=> thì nos thay đổi vị trí của thằng trước nó.
-        //////// ko ở vị trí 0
-        // nếu j = 0  => continue
-        // j =i => => nhân đôi j lên => active lại 2 thằng gán lại giá trị cho i =0,
-        // j khác i => lấy thằng trước nó và thay đổi giá trị 
-        cc.log(arrCard);
-
-        var _loop = function _loop(i) {
+        for (var i = 1; i < arrCard.length; i++) {
             if (arrCard[i].active == false) {
-                return 'continue';
+                continue;
             }
             var checkCompare = false;
-            var objEmit = { selfCard: null, otherCard: null, callback: null };
-
-            var _loop2 = function _loop2(_j) {
-                if (checkCompare == true) {
-                    _j = -1;
-                    return 'continue';
-                }
-                if (_j == 0) {
-                    if (arrCard[_j].active == false) {
-                        var callBack = function callBack() {
-                            arrCard[_j].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                            arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                            arrCard[i].active = false;
-                            arrCard[_j].active = true;
-                            checkCompare = true;
-                        };
-                        objEmit.otherCard = arrCard[_j];
-                        objEmit.callback = callBack;
-                        return 'continue';
-                    }
-                    //else if value j == value i => value j * 2 , value i = 0 , active j = true , active i = fasle
-                    else if (arrCard[_j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
-                            var _callBack = function _callBack() {
-                                arrCard[_j].children[0].getComponent('cc.Label').string = Number(arrCard[_j].children[0].getComponent('cc.Label').string) * 2 + "";
-                                arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                                arrCard[_j].active = true;
-                                arrCard[i].active = false;
-                                checkCompare = true;
-                            };
-                            objEmit.otherCard = arrCard[_j];
-                            objEmit.callback = _callBack;
-
-                            return 'continue';
-                        }
-                        //else if value j != value i => value j+1 = value i , value i = 0 , active j-1 = true , active i = false; 
-                        else if (arrCard[_j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
-                                var reValue = _j + 1;
-                                checkCompare = true;
-                                if (reValue == i) {
-                                    return 'continue';
-                                } else {
-                                    var _callBack2 = function _callBack2() {
-                                        arrCard[reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                                        arrCard[reValue].active = true;
-                                        arrCard[i].active = false;
-                                    };
-                                    objEmit.otherCard = arrCard[reValue];
-                                    objEmit.callback = _callBack2;
-                                    return 'continue';
-                                }
-                            }
-                }
-                //value j active = false => continue
-                if (arrCard[_j].active == false) {
-                    cc.log("continue");
-                    return 'continue';
-                }
-                // value j == value i => value j*2 && active j = true , active i = false , gán i = 0
-                if (arrCard[_j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
-                    var _callBack3 = function _callBack3() {
-                        arrCard[_j].children[0].getComponent('cc.Label').string = Number(arrCard[_j].children[0].getComponent('cc.Label').string) * 2 + "";
-                        cc.log(arrCard[_j].children[0].getComponent('cc.Label').string);
-                        arrCard[_j].active = true;
-                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                        arrCard[i].active = false;
-                        checkCompare = true;
-                        cc.log(arrCard[i], arrCard[_j]);
-                    };
-                    objEmit.otherCard = arrCard[_j];
-                    objEmit.callback = _callBack3;
-
-                    // if(j == 1){
-                    //     j = -1;
-                    // }
-                    return 'continue';
-                }
-                // value j != value i => value j +1 = value i , value i =0 , active j +1 = true , active i = false
-                if (arrCard[_j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
-                    checkCompare = true;
-                    var _reValue = _j + 1;
-                    // nếu value trước là chính nó thì continue
-                    if (_reValue == i) {
-                        return 'continue';
-                    }
-                    var _callBack4 = function _callBack4() {
-                        arrCard[_reValue].children[0].getComponent('cc.Label').string = arrCard[i].children[0].getComponent('cc.Label').string;
-                        arrCard[i].children[0].getComponent('cc.Label').string = "0";
-                        arrCard[_reValue].active = true;
-                        arrCard[i].active = false;
-                    };
-                    objEmit.otherCard = arrCard[_reValue];
-                    objEmit.callback = _callBack4;
-                    return 'continue';
-                }
-                j = _j;
-            };
-
+            var objAnim = { selfCard: null, otherCard: null, callBack: null };
             for (var j = i - 1; j >= 0; j--) {
-                var _ret2 = _loop2(j);
-
-                if (_ret2 === 'continue') continue;
+                if (checkCompare == true) {
+                    j = -1;
+                    break;
+                }
+                checkCompare = this.changeValueCards(arrCard, i, j, objAnim);
+                var cloneObjAnim = Object.assign(objAnim);
+                this.handleMove(cloneObjAnim.selfCard, cloneObjAnim.otherCard, cloneObjAnim.callBack);
             }
-            Emitter.instance.emit("handleMove", arrCard[i], objEmit.otherCard, objEmit.callback);
-        };
-
-        for (var i = 1; i < arrCard.length; i++) {
-            var _ret = _loop(i);
-
-            if (_ret === 'continue') continue;
         }
-        // cc.log(arrCard)
     },
-    getString: function getString(row, col) {
-        return this._arrBlocks[row][col].children[0].getComponent('cc.Label').string;
+    changeValueCards: function changeValueCards(arrCard, i, j, objAnim) {
+        if (arrCard[j].active == false) {
+            if (j == 0) {
+                var callBack = function callBack(selfCard, otherCard) {
+                    otherCard.children[0].getComponent('cc.Label').string = selfCard.children[0].getComponent('cc.Label').string;
+                    selfCard.children[0].getComponent('cc.Label').string = "0";
+                    selfCard.active = true;
+                    otherCard.active = true;
+                };
+                objAnim.selfCard = arrCard[i];
+                objAnim.otherCard = arrCard[j];
+                objAnim.callBack = callBack;
+                return true;
+            }
+        } else {
+            if (arrCard[j].children[0].getComponent('cc.Label').string == arrCard[i].children[0].getComponent('cc.Label').string) {
+                var _callBack = function _callBack(selfCard, otherCard) {
+                    otherCard.children[0].getComponent('cc.Label').string = Number(otherCard.children[0].getComponent('cc.Label').string) * 2 + "";
+                    selfCard.children[0].getComponent('cc.Label').string = "0";
+                    otherCard.active = true;
+                    selfCard.active = true;
+                };
+                objAnim.selfCard = arrCard[i];
+                objAnim.otherCard = arrCard[j];
+                objAnim.callBack = _callBack;
+                return true;
+            } else if (arrCard[j].children[0].getComponent('cc.Label').string != arrCard[i].children[0].getComponent('cc.Label').string) {
+                var reValue = j + 1;
+                if (reValue != i) {
+                    var _callBack2 = function _callBack2(selfCard, otherCard) {
+                        otherCard.children[0].getComponent('cc.Label').string = selfCard.children[0].getComponent('cc.Label').string;
+                        selfCard.children[0].getComponent('cc.Label').string = "0";
+                        otherCard.active = true;
+                        selfCard.active = true;
+                    };
+                    objAnim.selfCard = arrCard[i];
+                    objAnim.otherCard = arrCard[reValue];
+                    objAnim.callBack = _callBack2;
+                }
+                return true;
+            }
+        }
+    },
+    handleMove: function handleMove(selfCard, otherCard, callBack) {
+        if (selfCard != null && otherCard != null) {
+            var x = otherCard.x;
+            var y = otherCard.y;
+            cc.tween(selfCard).to(0.1, { x: x, y: y }).call(function () {
+                return callBack(selfCard, otherCard);
+            }).to(0.1, { x: selfCard.getComponent("card")._xOld, y: selfCard.getComponent("card")._yOld }).start();
+            // let action1 = cc.moveTo(0.5, cc.v2(x, y));
+            // let action2 = cc.callFunc(() => { callBack(selfCard, otherCard) });
+            // let action3 = cc.moveTo(0.5, cc.v2(selfCard.getComponent("card")._xOld, selfCard.getComponent("card")._yOld));
+            // let action = cc.sequence(action1, action2, action3);
+            // selfCard.runAction(action)
+        }
+    },
+    getString: function getString(arrCard, index) {
+        return arrCard[index].children[0].getComponent('cc.Label');
     },
     start: function start() {
         this.render();
